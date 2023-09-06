@@ -1,6 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
-const Navbar = () =>{
+const Navbar = (props: {name: String, setName : (name : String) => void}) =>{
+  const logout = async() => {
+    await fetch("http://127.0.0.1:8000/users/logout/",{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include',
+    });
+    props.setName('');
+  }
+  let menu;
+  if(props.name === ''){
+    menu = (
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+            <Link  to="/login" className="nav-link">Login</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/register" className="nav-link">Register</Link>
+          </li>
+        </ul>
+    )
+  }else{
+    menu = (
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <Link  to="/login" className="nav-link" onClick={logout}>Logout</Link>
+        </li>
+    </ul>
+    )
+  }
   return(
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
     <div className="container-fluid">

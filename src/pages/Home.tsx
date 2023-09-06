@@ -1,6 +1,10 @@
-const Home = () => {
+import { useEffect, useState } from "react";
+
+const Home = (props : {name : String}) => {
     return(
-        <h1>Home</h1>
+        <div>
+            <h1>{props.name ? 'Hi ' + props.name : 'You are not authenticated'}</h1>
+        </div>
     )
 }
 
