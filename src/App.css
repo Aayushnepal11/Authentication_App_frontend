@@ -36,3 +36,63 @@
     transform: rotate(360deg);
   }
 }
+
+
+html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  background-color: #000 !important;
+}
+
+.navbar-brand{
+  color: #fff !important;
+  font-size: 22px;
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.navbar-nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  font-size: 20px;
+}
+
+.nav-link{
+  color: #fff !important;
+}
+
+.nav-link:hover{
+  background-color: #646464 !important;
+  transition: .5s ease-in-out;
+}
