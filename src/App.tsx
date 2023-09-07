@@ -9,6 +9,20 @@ import Register from './pages/Register';
 
 function App() {
   const [name, setName]= useState<String>('');
+
+  const getJwtTokenFromCookies = () => {
+    const cookies = document.cookie.split(';');
+    for (const cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'jwt') {
+            return value;
+        }
+    }
+    return null;
+};
+
+  const jwtToken = getJwtTokenFromCookies();
+  
     useEffect(() => {
         // Executing the async function inside the useEffect
         (
@@ -16,6 +30,7 @@ function App() {
                 const response = await fetch("http://127.0.0.1:8000/users/user/", {
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${jwtToken}`,
                     },
                     credentials: 'include',
                   });
